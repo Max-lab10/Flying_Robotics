@@ -148,7 +148,7 @@ def add_pipeline_to_existing_world(template_path, output_path, pipeline_data):
 
         tap = ET.SubElement(world, "model", name=f"tap_{i}")
         static = ET.SubElement(tap, "static")
-        static.text = "true"  # 🔒 Статическая
+        static.text = "true"  
 
         pose = ET.SubElement(tap, "pose")
         pose.text = f"{cx:.3f} {cy:.3f} 0.05 0 -1.5708 {angle:.3f}"
@@ -179,11 +179,11 @@ def add_pipeline_to_existing_world(template_path, output_path, pipeline_data):
         if uri_elem is not None and uri_elem.text.strip() == "model://aruco_map_txt":
             uri_elem.text = "model://aruco_cmit_txt"
             aruco_replaced = True
-            print("✅ Заменена ArUco-модель на aruco_cmit_txt")
+            print("Заменена ArUco-модель на aruco_cmit_txt")
             break
 
     if not aruco_replaced:
-        print("ℹ️  Модель 'aruco_map_txt' не найдена в мире")
+        print("Модель 'aruco_map_txt' не найдена в мире")
 
     tree.write(output_path, encoding="utf-8", xml_declaration=True)
     print(f"Modified world saved to: {output_path}")
