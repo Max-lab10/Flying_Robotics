@@ -179,14 +179,10 @@ def add_pipeline_to_existing_world(template_path, output_path, pipeline_data):
         if uri_elem is not None and uri_elem.text.strip() == "model://aruco_map_txt":
             uri_elem.text = "model://aruco_cmit_txt"
             aruco_replaced = True
-            print("Заменена ArUco-модель на aruco_cmit_txt")
             break
 
-    if not aruco_replaced:
-        print("Модель 'aruco_map_txt' не найдена в мире")
 
     tree.write(output_path, encoding="utf-8", xml_declaration=True)
-    print(f"Modified world saved to: {output_path}")
 
 
 def create_world_from_scratch(output_path, pipeline_data):
@@ -253,7 +249,6 @@ def create_world_from_scratch(output_path, pipeline_data):
 
     tree = ET.ElementTree(sdf)
     tree.write(output_path, encoding="utf-8", xml_declaration=True)
-    print(f"World created from scratch: {output_path}")
     return output_path
 
 
@@ -261,6 +256,5 @@ if __name__ == "__main__":
     template_world = "/home/clover/catkin_ws/src/clover/clover_simulation/resources/worlds/clover_aruco.world"
     output_world = "oil_pipeline.world"
 
-    print(f"Использую шаблон: {template_world}")
     pipeline = generate_bent_pipeline()
     add_pipeline_to_existing_world(template_path=template_world, output_path=output_world, pipeline_data=pipeline)
