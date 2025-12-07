@@ -87,7 +87,6 @@ def ensure_ground_plane_exists(world_element):
         ground_uri.text = "model://ground_plane"
         ground_pose = ET.SubElement(ground_include, "pose")
         ground_pose.text = "0 0 -0.01 0 0 0"
-        print("Добавлен model://ground_plane")
 
     return ground_plane_exists
 
@@ -105,7 +104,6 @@ def ensure_sun_exists(world_element):
         sun_include = ET.SubElement(world_element, "include")
         sun_uri = ET.SubElement(sun_include, "uri")
         sun_uri.text = "model://sun"
-        print("Добавлен model://sun")
 
     return sun_exists
 
