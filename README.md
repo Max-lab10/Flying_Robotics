@@ -11,3 +11,4 @@ git clone https://github.com/Max-lab10/Flying_Robotics.git
 ```bash
 bash start.sh
 ```
+Создайте текстовый документ, вставьте туда код сайта, сохраните, поменяйте формат txt на html. 
